@@ -2,12 +2,15 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 
 import {
+    CubeCamera,
+  Environment,
   OrbitControls,
   PerspectiveCamera,
 } from "@react-three/drei";
 import "./style.css";
 import { Ground } from "./Ground";
 import Car from "./Car";
+import { Rings } from "./Rings";
 
 function CarShow() {
     return (
@@ -37,7 +40,15 @@ function CarShow() {
             shadow-bias={-0.0001}
         />
         <Ground />
-        <Car />
+        <CubeCamera resolution={256} frames={Infinity}>
+            {(texture) => (
+                <>
+                    <Environment map={texture} />
+                    <Car />
+                </>
+            )}
+        </CubeCamera>
+        <Rings />
         </>
     );
 }
