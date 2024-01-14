@@ -7,6 +7,7 @@ import {
 } from "@react-three/drei";
 import "./style.css";
 import { Ground } from "./Ground";
+import Car from "./Car";
 
 function CarShow() {
     return (
@@ -36,7 +37,7 @@ function CarShow() {
             shadow-bias={-0.0001}
         />
         <Ground />
-        
+        <Car />
         </>
     );
 }
