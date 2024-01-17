@@ -8,6 +8,7 @@ function App() {
         <>
             <div className='App'>
                 <Canvas>
+                    <color attach="background" args={["#101010"]} />
                     <Experience/>
                 </Canvas>
             </div>
