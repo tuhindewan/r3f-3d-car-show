@@ -1,22 +1,21 @@
-import { MeshReflectorMaterial, PresentationControls, Stage } from "@react-three/drei"
-
-export default function Experience() {
+import { PresentationControls, Stage } from "@react-three/drei";
+import Chair from "./Chair";
+  
+const Experience = () => {
     return (
+        <>
         <PresentationControls
             speed={1.5}
             global
             polar={[-0.1, Math.PI / 4]}
-            zoom={0.7}
+            rotation={[Math.PI / 8, Math.PI / 4, 0]}
         >
-            <Stage environment="city" intensity={0.6} contactShadow={false}>
-                <mesh>
-                    <boxGeometry />
-                    <meshNormalMaterial />
-                </mesh>
+            <Stage environment="city" intensity={0.6} castShadow={false}>
+                <Chair/>
             </Stage>
             <mesh rotation={[-Math.PI / 2, 0, 0]} position-y={-2}>
                 <planeGeometry args={[170, 170]} />
-                <MeshReflectorMaterial
+                <meshReflectorMaterial
                     blur={[300, 100]}
                     resolution={2048}
                     mixBlur={1}
@@ -30,5 +29,8 @@ export default function Experience() {
                 />
             </mesh>
         </PresentationControls>
-    )
-}
+        </>
+    );
+};
+
+export default Experience;
